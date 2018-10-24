@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>投票</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        h2{color: red;text-align: center;}
+    </style>
+</head>
+<body>
+<!--<div class="jumbotron">-->
+    <img src="/images/selectbg.jpeg" class="img-responsive center-block">
+<!--</div>-->
+<div id="selectBody" class="container">
+    <hr style="margin: 10px 0">
+    <!--/*@thymesVar id="Selections" type="java.util.List"*/-->
+    <th:block th:each="SelectionModel,infoStat : ${Selections}">
+        <div class="panel panel-primary" >
+            <div class="panel-heading">
+                <div>
+                    <h3 class="panel-title">
+                        <!--/*@thymesVar id="SelectionModel" type="com.xmasworking.project03.model.SelectionModel"*/-->
+                        <th:block th:text="${SelectionModel.name+'&nbsp;&nbsp;&nbsp;'}"></th:block>
+                        <input type="hidden" name="" th:value="${SelectionModel.id}">
+                    </h3>
+                </div>
+            </div>
+            <div class="panel-body row" style="margin: -10px">
+
+                <!--/*@thymesVar id="selectionList" type="java.util.List"*/-->
+                <th:block th:each="Selection,infoStat : ${SelectionModel.selectionList}">
+                    <input type="hidden" th:name="inlineRadioOptions_+${Selection.id}" th:value="${Selection.id}">
+                    <!--/*@thymesVar id="Selection" type="com.xmasworking.project03.entity.Selection"*/-->
+                    <p th:text="${Selection.titletext}"></p>
+                    <div class="bs-callout bs-callout-info">
+                        <label class="radio-inline">
+                            <input type="radio" th:name="inlineRadioOptions_+${Selection.id}" th:id="inlineRadioOptions_+${Selection.id}+_A" value="1">A
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" th:name="inlineRadioOptions_+${Selection.id}" th:id="inlineRadioOptions_+${Selection.id}+_B" value="2">B
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" th:name="inlineRadioOptions_+${Selection.id}" th:id="inlineRadioOptions_+${Selection.id}+_C" value="3">C
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" th:name="inlineRadioOptions_+${Selection.id}" th:id="inlineRadioOptions_+${Selection.id}+_D" value="4">D
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" th:name="inlineRadioOptions_+${Selection.id}" th:id="inlineRadioOptions_+${Selection.id}+_E" value="5">E
+                        </label>
+                    </div>
+                    <hr style="margin: 10px 0">
+                </th:block>
+            </div>
+        </div>
+    </th:block>
+    <button class="btn btn-success" id="apply" style="width: 100%">投票</button>
+    <div class="text-center" style="padding: 15px 0px 30px 0px">
+        <p style="text-align: center;font-size: smaller;">Copyright ©XmasWorking MedicalHelper.cn</p>
+    </div>
+</div>
+</body>
+</html>
