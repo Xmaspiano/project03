@@ -21,11 +21,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @DynamicUpdate
 @Table(name="LevelRole")
-public class LevelRole implements Serializable,Cloneable{
-    /** 主键 */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
+public class LevelRole extends BaseIdEntity implements Serializable,Cloneable{
+//    /** 主键 */
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id ;
     /** 角色名称 */
     private String name ;
     /** 角色级别 */

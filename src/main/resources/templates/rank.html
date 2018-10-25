@@ -1,50 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-	<title>图标</title>
+	<title>图表</title>
+
+	<!-- Bootstrap -->
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	<!--[if lt IE 9]>
+	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
-<body>
-<canvas id="chartjs-2" class="chartjs" width="1540" height="770" style="display: block; height: 385px; width: 770px;"></canvas>
+<body id="main_id" >
+<img src="/images/selectbg.jpeg" class="img-responsive center-block">
+<div id="selectBody" class="container">
+	<hr style="margin: 10px 0">
+	<canvas id="chartjs-2" class="chartjs" style="display: block;"></canvas>
+	<hr style="margin: 10px 0">
+</div>
+<div class="text-center" style="padding: 15px 0px 30px 0px">
+	<p style="text-align: center;font-size: smaller;">Copyright ©XmasWorking MedicalHelper.cn</p>
+</div>
 </body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var allSroce = /*[[${allSroce}]]*/ [];
+    /*]]>*/
+</script>
 <script>
+    // 将获取到的json数据分别存放到两个数组中
+    var labels = [], data = [];
+
+    for(var index in allSroce)
+    {
+        if(true) {
+            labels.push(allSroce[index].name);
+            data.push(allSroce[index].score);
+        }
+    }
+
     new Chart(document.getElementById("chartjs-2"), {
         "type": "horizontalBar",
         "data": {
-            "labels": ["部门1", "部门2", "部门3", "部门4", "部门5", "部门6", "部门7", "部门8", "部门9", "部门10"],
+            "labels": labels,
             "datasets": [{
-                "label": "My First Dataset",
-                "data": [65, 59, 80, 81, 56, 55, 40, 11, 22, 33],
+                "label": "图表",
+                "data": data,
                 "fill": false,
                 "backgroundColor": [
                     "rgba(255, 99, 132, 0.2)",
-					"rgba(255, 159, 64, 0.2)",
-					"rgba(255, 205, 86, 0.2)",
-					"rgba(75, 192, 192, 0.2)",
-					"rgba(54, 162, 235, 0.2)",
-					"rgba(153, 102, 255, 0.2)",
-					"rgba(201, 203, 207, 0.2)",
+                    "rgba(255, 159, 64, 0.2)",
+                    "rgba(255, 205, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(153, 102, 255, 0.2)",
+                    "rgba(201, 203, 207, 0.2)",
                     "rgba(151, 153, 157, 0.2)",
                     "rgba(101, 103, 107, 0.2)",
                     "rgba(51, 53, 57, 0.2)"
-				],
+                ],
                 "borderColor": [
                     "rgb(255, 99, 132)",
-					"rgb(255, 159, 64)",
-					"rgb(255, 205, 86)",
-					"rgb(75, 192, 192)",
-					"rgb(54, 162, 235)",
-					"rgb(153, 102, 255)",
-					"rgb(201, 203, 207)",
+                    "rgb(255, 159, 64)",
+                    "rgb(255, 205, 86)",
+                    "rgb(75, 192, 192)",
+                    "rgb(54, 162, 235)",
+                    "rgb(153, 102, 255)",
+                    "rgb(201, 203, 207)",
                     "rgb(151, 153, 157)",
                     "rgb(101, 103, 107)",
                     "rgb(51, 53, 57)"
-				],
+                ],
                 "borderWidth": 1
             }]
         },

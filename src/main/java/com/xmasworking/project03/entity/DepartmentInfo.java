@@ -21,11 +21,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @DynamicUpdate
 @Table(name="DepartmentInfo")
-public class DepartmentInfo implements Serializable,Cloneable{
-    /** 主键 */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
+public class DepartmentInfo extends BaseIdEntity implements Serializable,Cloneable{
+//    /** 主键 */
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id ;
     /** 部门名称 */
     private String name ;
     /** 乐观锁 */

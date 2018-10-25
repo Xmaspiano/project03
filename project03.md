@@ -43,10 +43,10 @@
 
 | 代码 | 名称 | 数据类型(Java/MySQL) | 主键 | 备注 |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| id | 主键 | Integer/INT | √ |  |
+| id | 主键 | Long/INT | √ |  |
 | telno | 电话号码 | String/VARCHAR(32) |  |  |
-| levelid | 级别角色 | Integer/INT |  |  |
-| REVISION | 乐观锁 | Integer/INT |  |  |
+| levelid | 级别角色 | Long/INT |  |  |
+| REVISION | 乐观锁 | Long/INT |  |  |
 
  ---
 
@@ -54,10 +54,10 @@
 
 | 代码 | 名称 | 数据类型(Java/MySQL) | 主键 | 备注 |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| id | 主键 | Integer/INT | √ |  |
+| id | 主键 | Long/INT | √ |  |
 | name | 角色名称 | String/VARCHAR(32) |  |  |
 | level | 角色级别 | String/VARCHAR(32) |  |  |
-| REVISION | 乐观锁 | Integer/INT |  |  |
+| REVISION | 乐观锁 | Long/INT |  |  |
 
  ---
 
@@ -65,9 +65,9 @@
 
 | 代码 | 名称 | 数据类型(Java/MySQL) | 主键 | 备注 |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| id | 主键 | Integer/INT | √ |  |
+| id | 主键 | Long/INT | √ |  |
 | name | 部门名称 | String/VARCHAR(32) |  |  |
-| REVISION | 乐观锁 | Integer/INT |  |  |
+| REVISION | 乐观锁 | Long/INT |  |  |
 
  ---
 
@@ -75,11 +75,11 @@
 
 | 代码 | 名称 | 数据类型(Java/MySQL) | 主键 | 备注 |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| id | 主键 | Integer/INT | √ |  |
-| deptid | 部门ID | Integer/INT |  |  |
+| id | 主键 | Long/INT | √ |  |
+| deptid | 部门ID | Long/INT |  |  |
 | titletext | 选项题目 | String/VARCHAR(32) |  |  |
-| sort | 排序 | Integer/INT |  |  |
-| REVISION | 乐观锁 | Integer/INT |  |  |
+| sort | 排序 | Long/INT |  |  |
+| REVISION | 乐观锁 | Long/INT |  |  |
 
  ---
 
@@ -87,11 +87,13 @@
 
 | 代码 | 名称 | 数据类型(Java/MySQL) | 主键 | 备注 |
 | ------------ | ------------ | ------------ | ------------ | ------------ |
-| id | 主键 | Integer/INT | √ |  |
-| telid | 手机信息ID | Integer/INT |  |  |
-| selectid | 选项信息ID | Integer/INT |  |  |
-| score | 得分 | Integer/INT |  |  |
-| REVISION | 乐观锁 | Integer/INT |  |  |
+| id | 主键 | Long/INT | √ |  |
+| telid | 手机信息ID | Long/INT |  |  |
+| selectid | 选项信息ID | Long/INT |  |  |
+| deptid | 部门ID | Long/INT |  |  |
+| score | 得分 | Long/INT |  |  |
+| ym | 年月 | String/VARCHAR(32) |  |  |
+| REVISION | 乐观锁 | Long/INT |  |  |
 | CREATED_BY | 创建人 | String/VARCHAR(32) |  | 存储session对象名称：手机号 |
 | CREATED_TIME | 创建时间 | Date/DateTime |  |  |
 

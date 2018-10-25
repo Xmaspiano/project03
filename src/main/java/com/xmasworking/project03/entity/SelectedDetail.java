@@ -22,19 +22,23 @@ import java.util.Date;
 @NoArgsConstructor
 @DynamicUpdate
 @Table(name="SelectedDetail")
-public class SelectedDetail implements Serializable,Cloneable{
-    /** 主键 */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id ;
+public class SelectedDetail extends BaseIdEntity implements Serializable,Cloneable{
+//    /** 主键 */
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id ;
     /** 手机信息ID */
-    private Integer telid ;
+    private Long telid ;
     /** 选项信息ID */
-    private Integer selectid ;
+    private Long selectid ;
+    /** 部门ID */
+    private Long deptid ;
     /** 得分 */
-    private Integer score ;
+    private Long score ;
+    /** 年月 */
+    private String ym ;
     /** 乐观锁 */
-    private Integer revision ;
+    private Long revision ;
     /** 创建人;存储session对象名称：手机号 */
     private String createdBy ;
     /** 创建时间 */

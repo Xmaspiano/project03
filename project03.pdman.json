@@ -255,10 +255,22 @@
               "chnname": "选项信息ID"
             },
             {
+              "name": "deptid",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "部门ID"
+            },
+            {
               "name": "score",
               "type": "Integer",
               "remark": "",
               "chnname": "得分"
+            },
+            {
+              "name": "ym",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "年月"
             },
             {
               "name": "REVISION",
@@ -374,7 +386,7 @@
             "controlPoints": [
               {
                 "x": 744.6552734375,
-                "y": 362.3382352941177
+                "y": 342.2738095238095
               },
               {
                 "x": 828.5654296875,
@@ -393,7 +405,7 @@
             "controlPoints": [
               {
                 "x": 744.6552734375,
-                "y": 382.45588235294116
+                "y": 362.3690476190476
               },
               {
                 "x": 721.4345703125,
@@ -420,6 +432,25 @@
               }
             ],
             "sourceAnchor": 2,
+            "targetAnchor": 1,
+            "relation": "1:n"
+          },
+          {
+            "shape": "polyLineFlow",
+            "source": "0fd35656",
+            "target": "3096866b",
+            "id": "75c21650",
+            "controlPoints": [
+              {
+                "x": 455.3447265625,
+                "y": 382.4642857142857
+              },
+              {
+                "x": 411.4345703125,
+                "y": 592.4166666666666
+              }
+            ],
+            "sourceAnchor": 6,
             "targetAnchor": 1,
             "relation": "1:n"
           }
@@ -463,6 +494,17 @@
           "relation": "1:n",
           "from": {
             "entity": "Selection",
+            "field": "deptid"
+          },
+          "to": {
+            "entity": "DepartmentInfo",
+            "field": "id"
+          }
+        },
+        {
+          "relation": "1:n",
+          "from": {
+            "entity": "SelectedDetail",
             "field": "deptid"
           },
           "to": {

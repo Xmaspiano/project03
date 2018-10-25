@@ -21,11 +21,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @DynamicUpdate
 @Table(name="TelInfo")
-public class TelInfo implements Serializable,Cloneable{
-    /** 主键 */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id ;
+public class TelInfo extends BaseIdEntity implements Serializable,Cloneable{
+//    /** 主键 */
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id ;
     /** 电话号码 */
     private String telno ;
     /** 级别角色 */
