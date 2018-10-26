@@ -36,7 +36,7 @@
 <div id="main_show"></div>
 <form id="form1" action="/login/checkcode" method="post">
     <div>
-        <input id="invite_code" class="form-control" name="invite_code" value="" th:placeholder="${msg==null?'请在这里输入你的手机号':msg}" >
+        <input id="invite_code" type="tel" class="form-control" name="invite_code" value="" th:placeholder="${msg==null?'请在这里输入你的手机号':msg}" >
         <button id="submit_code" name="submit_code"></button>
     </div>
 </form>
