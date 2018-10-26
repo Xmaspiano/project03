@@ -30,6 +30,8 @@ public class LevelRole extends BaseIdEntity implements Serializable,Cloneable{
     private String name ;
     /** 角色级别 */
     private String level ;
+    /** 倍率 */
+    private Long multiple ;
     /** 乐观锁 */
     private Long revision ;
 

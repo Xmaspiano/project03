@@ -18,4 +18,8 @@ public interface SelectedDetailService {
     List<Map> getDeptSelectionTotleScoreByYM(String ym);
 
     List<SelectedDetail> getAllByYM(String ym);
+
+    List<SelectedDetail> saveByLevelRoleScore(List<SelectedDetail> selectedDetail);
+
+    Boolean hasCommitByTel();
 }

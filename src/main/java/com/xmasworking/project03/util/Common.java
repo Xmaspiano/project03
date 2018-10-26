@@ -17,7 +17,6 @@ public class Common {
         int month = cale.get(Calendar.MONTH) + 1;
 
         String ym = year + (month < 10 ? "0" + month : month + "");
-        System.out.println(ym);
         return ym;
     }
 }

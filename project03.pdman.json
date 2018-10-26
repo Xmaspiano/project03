@@ -83,6 +83,12 @@
               "chnname": "角色级别"
             },
             {
+              "name": "multiple",
+              "type": "Integer",
+              "remark": "",
+              "chnname": "倍率"
+            },
+            {
               "name": "REVISION",
               "type": "Integer",
               "remark": "",

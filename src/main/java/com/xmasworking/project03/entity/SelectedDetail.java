@@ -40,8 +40,10 @@ public class SelectedDetail extends BaseIdEntity implements Serializable,Cloneab
     /** 乐观锁 */
     private Long revision ;
     /** 创建人;存储session对象名称：手机号 */
+    @Column(name = "CREATED_BY")
     private String createdBy ;
     /** 创建时间 */
+    @Column(name = "CREATED_TIME")
     private Date createdTime ;
 
 }

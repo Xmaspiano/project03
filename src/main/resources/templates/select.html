@@ -69,7 +69,7 @@
     </form>
 
     <!-- Small modal -->
-    <button class="btn btn-success" id="apply" style="width: 100%">投票</button>
+    <button class="btn btn-success" id="apply" data-loading-text="Loading..." autocomplete="off" style="width: 100%">投票</button>
     <div class="text-center" style="padding: 15px 0px 30px 0px">
         <p style="text-align: center;font-size: smaller;">Copyright ©XmasWorking MedicalHelper.cn</p>
     </div>
@@ -83,6 +83,8 @@
 <script>
     $(function () {
         $("#apply").on('click',function(){
+            var $btn = $(this).button('loading');
+
             var submit= [];
             var test = false;
             var error = "";
@@ -120,12 +122,17 @@
                 setTimeout(function(){
                     $("#apply").popover('hide');
                 },2000);
+                // business logic...
+                $btn.button('reset');
                 return false;
             }else {
                 $.ajax({
                     type: 'POST',
                     url: "/select/commit",
                     data: JSON.stringify(submit),
+                    dataType:"json",
+                    contentType:"application/json",
+
                     success: function(data){
                         if(data.status){
                             window.top.location = data.forword;
